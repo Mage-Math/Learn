@@ -175,19 +175,19 @@
   <div class="slide active" id="slide1">
     <h2>🚖 Mission 1: The Taxi Ride</h2>
     <div class="story-box">
-      A taxi has a <strong>$4 starting fee</strong> just to get in. Then, it costs <strong>$2 for every mile</strong> driven.
+      A taxi has a <strong>4 starting fee</strong> just to get in. Then, it costs <strong>2 for every mile</strong> driven.
     </div>
 
     <div class="step-box">
-      <label>Step A: How much do you pay for 1 mile?</label>
-      <p>$4 starting fee + ($2 × 1 mile) = $</p>
-      <input type="number" id="s1_a" placeholder="Total $">
+      <label>Step A: What is the total cost for 1 mile?</label>
+      <p>4 starting fee + (2 × 1 mile) =</p>
+      <input type="number" id="s1_a" placeholder="Total">
     </div>
 
     <div class="step-box">
-      <label>Step B: How much do you pay for 3 miles?</label>
-      <p>$4 starting fee + ($2 × 3 miles) = $</p>
-      <input type="number" id="s1_b" placeholder="Total $">
+      <label>Step B: What is the total cost for 3 miles?</label>
+      <p>4 starting fee + (2 × 3 miles) =</p>
+      <input type="number" id="s1_b" placeholder="Total">
     </div>
 
     <button class="check-btn" onclick="checkSlide1()">Check Answers</button>
@@ -204,8 +204,8 @@
     <h2>🚖 Mission 1: Spot the Pattern</h2>
     <div class="story-box">
       Look at your pattern:<br>
-      • 1 mile ➔ $4 + ($2 × 1) = $6<br>
-      • 3 miles ➔ $4 + ($2 × 3) = $10
+      • 1 mile ➔ 4 + (2 × 1) = 6<br>
+      • 3 miles ➔ 4 + (2 × 3) = 10
     </div>
 
     <div class="step-box">
@@ -227,28 +227,28 @@
   <div class="slide" id="slide3">
     <h2>🛠️ Mission 2: Tool Rental</h2>
     <div class="story-box">
-      A shop charges a <strong>$20 reservation fee</strong> plus <strong>$15 per hour</strong> to rent a lawnmower.
+      A shop charges a <strong>20 reservation fee</strong> plus <strong>15 per hour</strong> to rent a lawnmower.
     </div>
 
     <table>
       <tr>
         <th>Hours (h)</th>
         <th>Calculation</th>
-        <th>Total Cost ($)</th>
+        <th>Total Cost</th>
       </tr>
       <tr>
         <td>1 hour</td>
-        <td>$20 + ($15 × 1)</td>
-        <td>$35</td>
+        <td>20 + (15 × 1)</td>
+        <td>35</td>
       </tr>
       <tr>
         <td>2 hours</td>
-        <td>$20 + ($15 × 2)</td>
+        <td>20 + (15 × 2)</td>
         <td><input type="number" id="s3_2h" style="width:70px"></td>
       </tr>
       <tr>
         <td>4 hours</td>
-        <td>$20 + ($15 × 4)</td>
+        <td>20 + (15 × 4)</td>
         <td><input type="number" id="s3_4h" style="width:70px"></td>
       </tr>
     </table>
@@ -266,7 +266,7 @@
   <div class="slide" id="slide4">
     <h2>🛠️ Mission 2: Write the Formula!</h2>
     <div class="story-box">
-      The $20 fee stays fixed, and $15 is multiplied by the hours <code>h</code>.
+      The 20 fee stays fixed, and 15 is multiplied by the hours <code>h</code>.
     </div>
 
     <div class="step-box">
@@ -287,7 +287,7 @@
   <div class="slide" id="slide5">
     <h2>🎉 Mission 3: Party Catering</h2>
     <div class="story-box">
-      A party hall charges a <strong>$200 hall fee</strong>, plus <strong>$25 per adult meal (a)</strong> and <strong>$15 per child meal (c)</strong>.
+      A party hall charges a <strong>200 hall fee</strong>, plus <strong>25 per adult meal (a)</strong> and <strong>15 per child meal (c)</strong>.
     </div>
 
     <div class="step-box">
@@ -346,7 +346,7 @@
       fb.className = "feedback correct";
       document.getElementById('next1').classList.remove('hidden');
     } else {
-      fb.textContent = "✗ Try again. Remember: $4 starting fee + ($2 × miles).";
+      fb.textContent = "✗ Try again. Remember: 4 starting fee + (2 × miles).";
       fb.className = "feedback incorrect";
     }
   }
@@ -355,11 +355,9 @@
     const expr = document.getElementById('s2_expr').value.trim();
     const fb = document.getElementById('fb2');
 
-    // Standardize expression evaluation
     let sanitized = expr.replace(/(\d+)\s*([a-zA-Z])/g, '$1*$2');
 
     try {
-      // Test for values 1 and 3
       let test1 = eval(sanitized.replace(/m/g, 1));
       let test3 = eval(sanitized.replace(/m/g, 3));
 
@@ -421,7 +419,6 @@
     let sanitized = expr.replace(/(\d+)\s*([a-zA-Z])/g, '$1*$2');
 
     try {
-      // Test with a=2 adults, c=3 children -> 200 + 25(2) + 15(3) = 295
       let testVal = eval(sanitized.replace(/a/g, 2).replace(/c/g, 3));
 
       if (testVal === 295) {
